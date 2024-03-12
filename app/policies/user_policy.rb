@@ -6,6 +6,7 @@ class UserPolicy
     @user = user
   end
 
+  #4 In order to take advantage of the policy helper method, we must define our authorization logic here so we can reference it back in the view templates. 
   def show?
     user == current_user ||
       !user.private? ||
