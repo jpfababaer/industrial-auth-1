@@ -6,13 +6,34 @@ class PhotoPolicy < ApplicationPolicy
     @photo = photo
   end
 
-  # Our policy is that a photo should only be seen by the owner or followers
-  #   of the owner, unless the owner is not private in which case anyone can
-  #   see it
+  def index?
+    false
+  end
+
   def show?
     user == photo.owner ||
       !photo.owner.private? ||
       photo.owner.followers.include?(user)
+  end
+
+  def create?
+    true
+  end
+
+  def new?
+    create?
+  end
+
+  def update?
+    edit?
+  end
+
+  def edit?
+    user == photo.owner
+  end
+
+  def destroy?
+    user == photo.owner
   end
 
 end
