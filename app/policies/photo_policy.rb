@@ -35,5 +35,4 @@ class PhotoPolicy < ApplicationPolicy
   def destroy?
     user == photo.owner
   end
-
 end

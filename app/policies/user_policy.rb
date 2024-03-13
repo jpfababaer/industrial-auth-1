@@ -23,4 +23,8 @@ class UserPolicy < ApplicationPolicy
   def discover?
     user == current_user
   end
+
+  def pending?
+    user == current_user
+  end
 end

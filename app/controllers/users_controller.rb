@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show liked feed discover following followers]
-  before_action :authorize_user, only: %i[ show feed discover ]
+  before_action :authorize_user, only: %i[ show feed discover pending ]
 
   private
 
