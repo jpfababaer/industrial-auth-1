@@ -17,14 +17,23 @@ class UserPolicy < ApplicationPolicy
   end
 
   def feed?
-    user == current_user
+    current_user?
   end
 
   def discover?
-    user == current_user
+    current_user?
   end
 
   def pending?
+    current_user?
+  end
+
+  def liked?
+    true
+  end
+
+  private
+  def current_user?
     user == current_user
   end
 end

@@ -144,7 +144,7 @@
     target: "#{dom_id(user)}_following"
 %>
 
-<% if current_user == @user%>
+<% if policy(user).pending? %>
   <%=
   render "users/connected_users_modal",
     user: user,
